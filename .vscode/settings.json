@@ -1,0 +1,5 @@
+{
+	"code-runner.executorMap": {
+		"cpp": "cd $dir && cl.exe /Zi /EHsc /nologo /Fe: main.exe *.cpp && echo finish compiling  && .\\main.exe",
+	}
+}
