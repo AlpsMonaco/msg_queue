@@ -1,15 +1,33 @@
 #pragma once
-#include "util.h"
 #include <map>
 #include <thread>
 #include <atomic>
 
-typedef void (*msgcb)(void*);
+// use this when size of dst is larger than src surely.
+template <typename T>
+void copy_container(T src, int src_size, T dst)
+{
+	for (int i = 0; i < src_size; i++)
+	{
+		dst[i] = src[i];
+	}
+}
+
+// copy all src to dst when size of dst is bigger than src.
+// copy only size of dst from src to dst when size of dst is smaller than src.
+template <typename T>
+void copy_container(T src, int src_size, T dst, int dst_size)
+{
+	int size = dst_size > src_size ? src_size : dst_size;
+	copy_container(src, size, dst);
+}
+
+typedef void (*msgcb)(void *);
 
 struct msg_payload
 {
 	int msg_enum;
-	void* msg;
+	void *msg;
 };
 
 class msg_queue
@@ -23,7 +41,7 @@ public:
 	void start();
 	void stop();
 	void register_msg(int msg_enum, msgcb cb);
-	bool put_msg(int msg_enum, void* msg);
+	bool put_msg(int msg_enum, void *msg);
 	void set_max_thread_num(int num);
 
 	static const int default_queue_size = 100;
@@ -37,7 +55,7 @@ protected:
 	std::atomic_int queue_handled_pos;
 	std::atomic_int current_thread_num;
 
-	msg_payload* queue;
+	msg_payload *queue;
 	std::map<int, msgcb> cb_map;
 
 	void new_queue_size(int size);
