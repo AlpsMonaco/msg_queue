@@ -41,7 +41,7 @@ public:
 	void start();
 	void stop();
 	void register_msg(int msg_enum, msgcb cb);
-	bool put_msg(int msg_enum, void *msg);
+	void put_msg(int msg_enum, void *msg);
 	void set_max_thread_num(int num);
 
 	static const int default_queue_size = 100;
