@@ -2,3 +2,7 @@
 /.vs
 src/Debug
 src/.vs
+/*.pdb
+/*.exe
+/*.obj
+/*.ilk
