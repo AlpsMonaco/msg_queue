@@ -6,3 +6,11 @@ src/.vs
 /*.exe
 /*.obj
 /*.ilk
+/build/Dll1/.vs
+/build/.vs
+/build/Release
+/build/X64
+/build/*.sln
+/build/*.vcxproj
+/build/*.filters
+/build/*.user
