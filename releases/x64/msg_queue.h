@@ -1,5 +1,3 @@
-﻿#define EXPORT_DLL __declspec(dllexport)
-
 #pragma once
 #include <map>
 #include <thread>
@@ -24,15 +22,15 @@ void copy_container(T src, int src_size, T dst, int dst_size)
 	copy_container(src, size, dst);
 }
 
-typedef void (*msgcb)(void*);
+typedef void (*msgcb)(void *);
 
 struct msg_payload
 {
 	int msg_enum;
-	void* msg;
+	void *msg;
 };
 
-class EXPORT_DLL msg_queue
+class msg_queue
 {
 public:
 	msg_queue();
@@ -43,7 +41,7 @@ public:
 	void start();
 	void stop();
 	void register_msg(int msg_enum, msgcb cb);
-	void put_msg(int msg_enum, void* msg);
+	void put_msg(int msg_enum, void *msg);
 	void set_max_thread_num(int num);
 
 	static const int default_queue_size = 100;
@@ -57,7 +55,7 @@ protected:
 	std::atomic_int queue_handled_pos;
 	std::atomic_int current_thread_num;
 
-	msg_payload* queue;
+	msg_payload *queue;
 	std::map<int, msgcb> cb_map;
 
 	void new_queue_size(int size);
