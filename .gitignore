@@ -14,3 +14,6 @@ src/.vs
 /build/*.vcxproj
 /build/*.filters
 /build/*.user
+/demo/*.ilk
+/demo/*.obj
+/demo/*.pdb
