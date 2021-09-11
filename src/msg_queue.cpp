@@ -13,7 +13,7 @@ msg_queue::msg_queue(int queue_size)
 	this->queue_handled_pos = 0;
 	this->current_thread_num = 0;
 	this->queue = nullptr;
-	new_queue_size(default_queue_size);
+	new_queue_size(queue_size);
 }
 
 msg_queue::~msg_queue()
