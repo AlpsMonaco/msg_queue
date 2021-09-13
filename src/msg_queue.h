@@ -52,6 +52,7 @@ protected:
 	int max_thread_num;
 
 	std::atomic_int queue_pos;
+	std::atomic_int handle_pos;
 	std::atomic_int queue_handled_pos;
 	std::atomic_int current_thread_num;
 
@@ -67,4 +68,5 @@ protected:
 	int get_unfinished_num();
 	int get_next_queue_pos();
 	int get_next_handle_pos();
+	void done_task();
 };
