@@ -12,6 +12,7 @@ using MsgCallBack = void (*)(Msg msg);
 
 class MsgQueue
 {
+public:
 	MsgQueue();
 	MsgQueue(int containerSize);
 	MsgQueue(int containerSize, int consumerNum);
@@ -19,7 +20,7 @@ class MsgQueue
 	void RegisterMsg(MsgEnum msgEnum, MsgCallBack cb);
 	void PutMsg(MsgEnum msgEnum, Msg m);
 	void SetConsumerNum(int num);
-	void Start();
+
 	void Stop();
 
 protected:
