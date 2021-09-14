@@ -25,6 +25,7 @@ int *pInt = new int;
 mq->PutMsg(msgEnum,pInt);
 // task will work automatically.
 
+// demo/main.cpp for more usage.
 
 ```
 

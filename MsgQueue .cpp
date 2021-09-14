@@ -55,6 +55,11 @@ void MsgQueueImpl::NewConsumer()
 	this->ConsumerMethod();
 }
 
+MsgQueue::~MsgQueue()
+{
+	delete msgQueueImpl;
+}
+
 void MsgQueueImpl::ConsumerMethod()
 {
 	int loopNum = 0;
