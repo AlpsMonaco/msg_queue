@@ -132,7 +132,6 @@ void MsgQueueImpl::Stop()
 	}
 }
 
-#include <iostream>
 int MsgQueueImpl::GetQueuePosition(int &num)
 {
 	return num % containerSize;
